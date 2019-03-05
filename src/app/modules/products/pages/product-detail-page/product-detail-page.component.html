@@ -1,5 +1,5 @@
 <div class="product-details page">
-  <app-product-form [product]="product">
+  <app-product-form [product]="product" (submited)="_formSubmited($event)">
   </app-product-form>
 </div>
 

@@ -84,10 +84,10 @@
     ],
     "prefer-const": true,
     "quotemark": [
-      true,
+      false,
       "single"
     ],
-    "radix": true,
+    "radix": false,
     "semicolon": [
       true,
       "always"

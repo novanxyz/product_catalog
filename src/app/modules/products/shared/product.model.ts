@@ -3,7 +3,7 @@ import {Deserializable} from '../../../shared/interfaces/deserializable.interfac
 export class Product implements Deserializable {
   static __name__ = 'product.product';
 
-  id: string;
+  id: number;
   name: string;
   description: string;
   price: number;

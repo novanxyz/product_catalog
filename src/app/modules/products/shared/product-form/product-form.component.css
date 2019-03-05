@@ -1,0 +1,14 @@
+.product-form {
+  display: block;
+  margin: 4px 10px;
+}
+.product-form .mat-form-field {
+  display: block;
+}
+
+.product-form .img-product.preview{
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}

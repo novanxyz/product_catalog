@@ -23,10 +23,8 @@ export class ProductService {
 
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-
       // TODO: better job of transforming error for user consumption
       LoggerService.log(`${operation} failed: ${error.message}`);
-
 
       if (error.status >= 500) {
         throw error;
@@ -70,7 +68,7 @@ export class ProductService {
     //.catchError ( ProductService.handleError('getProducts',[]));
   }
 
-  createProduct(product: Product): Promise<Number> {
+  createProduct(product: Product): Promise<number> {
     return this.http
       .post(serverUrl + this.modelUrl , product)
       .pipe(

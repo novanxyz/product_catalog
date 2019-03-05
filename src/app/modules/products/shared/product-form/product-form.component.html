@@ -1,34 +1,57 @@
 
-<form [formGroup]="productForm" ngxScrollToFirstInvalid
-      (ngSubmit)="submit()" autocomplete="on" class="product-form">
+<form [formGroup]="productForm"  (ngSubmit)="submit()"
+      ngxScrollToFirstInvalid autocomplete="on" class="product-form" >
 
   <div class="form-error" *ngIf="_error">{{_error | translate}}</div>
+
   <mat-form-field class="input-container">
     <input matInput name="name" type="text"
             placeholder="Product Name"
             formControlName="name"
-            [readonly]="_readonly">
+            [readonly]="_readonly"
+            />
   </mat-form-field>
+
   <mat-form-field class="input-container">
     <input matInput type="number" name="price"
             placeholder="Price"
             formControlName="price"
-            [readonly]="_readonly">
+            [readonly]="_readonly"
+            />
   </mat-form-field>
 
+  <div matFormField class="input-container">
+    <textarea matInput type="text" name="description"
+      placeholder="Description"
+      formControlName="description"
+      [readonly]="_readonly"
+      >{{product.description}}</textarea>
+  </div>
+
+  <div matFormField class="input-container">
+    <input #imageInput
+        name="image"
+        type="file"
+        accept="image/*"
+        [hidden]="_readonly"
+        (change)="processFile(imageInput)" />
+
+    <img #imgPreview class="img-product preview" [src]="_imgUrl" *ngIf="_imgUrl" />
+  </div>
 
   <div class="form-actions btns">
-    <button mat-raised-button type="button" [hidden]="!_readonly">
+
+    <button mat-raised-button type="button" [hidden]="_readonly" (tab)="goCancel()">
+      Cancel
+    </button>
+    <button mat-raised-button type="button" [hidden]="!_readonly" (tap)="goEdit()">
       Edit
     </button>
 
-    <button mat-raised-button type="button" [hidden]="_readonly">
+    <button mat-raised-button type="submit" [hidden]="_readonly" (tap)="submit()">
       Save
     </button>
 
-    <button mat-raised-button type="button" [hidden]="_readonly">
-      Cancel
-    </button>
   </div>
 
 </form>
