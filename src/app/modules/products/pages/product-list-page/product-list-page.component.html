@@ -1,0 +1,14 @@
+<base href="http://sales.novanxyz.com"/>
+<div fxLayout="row">
+  <div fxFlex="10" fxFlex.gt-sm="20"></div>
+  <div fxFlex="90" fxFlex.gt-sm="80">
+    <h1 class="header__title">{{'products'}}</h1>
+    <app-loading *ngIf="!products"></app-loading>
+    <div id="products-list" *ngIf="products"  >
+      <ng-container *ngFor="let product of products">
+        <app-product-card [product]="product"></app-product-card>
+      </ng-container>
+    </div>
+  </div>
+  <div fxFlex="10" fxFlex.gt-sm="20"></div>
+</div>

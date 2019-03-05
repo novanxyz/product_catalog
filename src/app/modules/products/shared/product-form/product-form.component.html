@@ -1,0 +1,34 @@
+
+<form [formGroup]="productForm" ngxScrollToFirstInvalid
+      (ngSubmit)="submit()" autocomplete="on" class="product-form">
+
+  <div class="form-error" *ngIf="_error">{{_error | translate}}</div>
+  <mat-form-field class="input-container">
+    <input matInput name="name" type="text"
+            placeholder="Product Name"
+            formControlName="name"
+            [readonly]="_readonly">
+  </mat-form-field>
+  <mat-form-field class="input-container">
+    <input matInput type="number" name="price"
+            placeholder="Price"
+            formControlName="price"
+            [readonly]="_readonly">
+  </mat-form-field>
+
+
+  <div class="form-actions btns">
+    <button mat-raised-button type="button" [hidden]="!_readonly">
+      Edit
+    </button>
+
+    <button mat-raised-button type="button" [hidden]="_readonly">
+      Save
+    </button>
+
+    <button mat-raised-button type="button" [hidden]="_readonly">
+      Cancel
+    </button>
+  </div>
+
+</form>

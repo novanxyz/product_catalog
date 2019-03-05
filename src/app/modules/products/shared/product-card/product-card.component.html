@@ -1,0 +1,14 @@
+<mat-card class="product-card" *ngIf="product">
+  <mat-card-header>
+    <div (click)="goToDetail(product)" mat-card-avatar class="product-header__image"
+         [ngStyle]="{'background-image': 'url(' + product.imageUrl + ')'}"></div>
+    <mat-card-title (click)="goToDetail(product)">{{product.name}}</mat-card-title>
+    <mat-card-subtitle (click)="goToDetail(product)">{{product.description}}</mat-card-subtitle>
+    <div class="flex-spacer"></div>
+    <div class="product-actions">
+      {{product.price}}
+      <mat-icon class="icon__like--red" >add_shopping_cart</mat-icon>
+    </div>
+  </mat-card-header>
+  <img (click)="goToDetail(product)" mat-card-image src="{{product.imageUrl}}">
+</mat-card>
