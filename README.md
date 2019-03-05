@@ -1,4 +1,4 @@
-## My WIP Project to create CRUD Base Application
+## My *WIP* Project to create CRUD Base Application (Framework*
 
 1. it based on https://github.com/gothinkster/angular-realworld-example-app
 2. Will implement 12 Factor of application https://12factor.net/
