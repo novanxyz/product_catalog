@@ -7,9 +7,12 @@ import { ProductService } from '../../shared/product.service';
 @Component({
   selector: 'app-product-detail-page',
   templateUrl: './product-detail-page.component.html',
-  styleUrls: ['./product-detail-page.component.css']
+  styleUrls: ['./product-detail-page.component.css'],
+// tslint:disable-next-line: use-host-property-decorator
+  host: {'class': 'page no-footer'}
 })
 export class ProductDetailPageComponent implements OnInit {
+  public productId: number;
   public product: Product;
 
   @ViewChild(ProductFormComponent)
@@ -21,11 +24,16 @@ export class ProductDetailPageComponent implements OnInit {
     }
 
   ngOnInit() {
-    const productId = parseInt(this.activatedRoute.snapshot.paramMap.get('id') );
-    this.productService.getProduct(productId).subscribe((product: Product) => {
-      console.log(product);
-      this.product = product;
-    });
+    this.productId = parseInt( this.activatedRoute.snapshot.paramMap.get('id') );
+    if ( isNaN(this.productId) ){
+      return this.productForm.changeMode('new');
+    }
+
+    this.productService.getProduct(this.productId)
+      .subscribe((product: Product) => {
+        console.log(product);
+        this.product = product;
+      });
   }
 
   _formSubmited(ev) {

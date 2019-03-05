@@ -3,12 +3,13 @@
       ngxScrollToFirstInvalid autocomplete="on" class="product-form" >
 
   <div class="form-error" *ngIf="_error">{{_error | translate}}</div>
+  <div class="form-msg" *ngIf="_mode">{{ _mode }}</div>
 
   <mat-form-field class="input-container">
     <input matInput name="name" type="text"
             placeholder="Product Name"
             formControlName="name"
-            [readonly]="_readonly"
+            [readonly]="readOnly"
             />
   </mat-form-field>
 
@@ -16,7 +17,7 @@
     <input matInput type="number" name="price"
             placeholder="Price"
             formControlName="price"
-            [readonly]="_readonly"
+            [readonly]="readOnly"
             />
   </mat-form-field>
 
@@ -24,7 +25,7 @@
     <textarea matInput type="text" name="description"
       placeholder="Description"
       formControlName="description"
-      [readonly]="_readonly"
+      [readonly]="readOnly"
       >{{product.description}}</textarea>
   </div>
 
@@ -33,7 +34,7 @@
         name="image"
         type="file"
         accept="image/*"
-        [hidden]="_readonly"
+        [hidden]="readOnly"
         (change)="processFile(imageInput)" />
 
     <img #imgPreview class="img-product preview" [src]="_imgUrl" *ngIf="_imgUrl" />
@@ -41,14 +42,14 @@
 
   <div class="form-actions btns">
 
-    <button mat-raised-button type="button" [hidden]="_readonly" (tab)="goCancel()">
+    <button mat-flat-button	 type="button" [hidden]="readOnly" (tab)="changeMode('view')" color="warn">
       Cancel
     </button>
-    <button mat-raised-button type="button" [hidden]="!_readonly" (tap)="goEdit()">
+    <button mat-stroked-button type="button" [hidden]="!readOnly" (tap)="changeMode('edit')" color="warn">
       Edit
     </button>
 
-    <button mat-raised-button type="submit" [hidden]="_readonly" (tap)="submit()">
+    <button mat-raised-button type="submit" [hidden]="readOnly" (tap)="submit()" color="primary">
       Save
     </button>
 

@@ -87,5 +87,26 @@ pre {
   }
 }
 
+.page {
+  height: calc(100vh - 227px);
+}
+
+.page.no-footer + app-footer {
+  display: none!important;
+}
+
+.form-actions {
+  position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 4px 8px;
+}
+.form-actions button {
+   margin: 4px 8px;
+   float: right;
+}
+
 // MATERIAL
 @import "material";
+

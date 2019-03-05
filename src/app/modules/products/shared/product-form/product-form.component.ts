@@ -1,8 +1,7 @@
-import { FormControl } from '@angular/forms';
 import { ProductFormGroup } from './../product-formgroup';
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
-import {Product} from '../product.model';
-import {ProductService} from '../product.service';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Product } from '../product.model';
+import { ProductService } from '../product.service';
 import { UtilsHelperService } from 'src/app/core/services/utils-helper.service';
 
 
@@ -12,9 +11,9 @@ import { UtilsHelperService } from 'src/app/core/services/utils-helper.service';
   styleUrls: ['./product-form.component.css'],
   animations: [UtilsHelperService.fadeInOut()]
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent implements OnInit, OnChanges {
 
-  _readonly: boolean = false;
+  public readOnly: boolean = false;
   _error: string;
   _mode: string = 'view' ; // || 'edit' || 'new';
   _imgUrl: any;
@@ -31,11 +30,20 @@ export class ProductFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productForm.patchValue(this.product);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes, this.product);
+    console.log(this.productForm);
+    if ( changes['product'] ) {
+      this.productForm.patchValue(this.product);
+      console.log(this.productForm);
+    }
   }
 
   changeMode(mode: string ) {
-    this._readonly =  mode == 'view';
+    console.log(mode);
+    this.readOnly =  mode == 'view';
     this._mode =  mode;
   }
 
@@ -46,19 +54,15 @@ export class ProductFormComponent implements OnInit {
         this.product.id = e;
         this.product.imageUrl = `/web/binary/image?model=${Product.__name__}&id=${e}&field=image`;
         this.submited.emit(this.product);
+        this.changeMode('view');
     });
   }
 
-  goEdit() {
-    this._readonly = false;
-  }
-  goCancel() {
-    this._readonly = true;
-  }
   processFile(imgInput: HTMLInputElement) {
 
     // tslint:disable-next-line:curly
     if (imgInput.name != 'image') return;
+    // tslint:disable-next-line: curly
     if (imgInput.files.length === 0)  return;
 
     const mimeType = imgInput.files[0].type;

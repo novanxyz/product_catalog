@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {ProgressBarService} from './services/progress-bar.service';
 import {TimingInterceptor} from './interceptors/timing.interceptor';
@@ -7,6 +8,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterModule} from '@angular/router';
+
 
 @NgModule({
   imports: [
