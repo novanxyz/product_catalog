@@ -17,6 +17,7 @@ import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-inva
 import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
 import {LoadingComponent} from './components/loading/loading.component';
 import {HeroCardComponent} from './components/hero-card/hero-card.component';
+import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {HeroCardComponent} from './components/hero-card/hero-card.component';
     SpinnerComponent,
     HeroCardComponent,
     LoadingComponent,
-    LoadingPlaceholderComponent
+    LoadingPlaceholderComponent,
+    ValidationErrorsComponent
   ],
   exports: [
     CommonModule,
@@ -56,7 +58,8 @@ import {HeroCardComponent} from './components/hero-card/hero-card.component';
     HeroCardComponent,
     LoadingComponent,
     NgxScrollToFirstInvalidModule,
-    LoadingPlaceholderComponent
+    LoadingPlaceholderComponent,
+    ValidationErrorsComponent
   ]
 })
 

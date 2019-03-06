@@ -20,7 +20,7 @@ export class ProductDetailPageComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute) {
-      this.product = new Product({ "id": 23131, "name": "test random product", "list_price": 12313.0 });
+      // this.product = new Product({ "id": 23131, "name": "test random product", "list_price": 12313.0 });
     }
 
   ngOnInit() {
@@ -31,13 +31,13 @@ export class ProductDetailPageComponent implements OnInit {
 
     this.productService.getProduct(this.productId)
       .subscribe((product: Product) => {
-        console.log(product);
+        // console.log(product);
         this.product = product;
       });
   }
 
   _formSubmited(ev) {
-    console.log(ev);
+    // console.log(ev);
     this.productForm._readonly = true;
   }
 

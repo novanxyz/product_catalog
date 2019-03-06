@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Product } from './product.model';
 
 
-/**  this class will handle form imput validation */
+/**  this class will handle form input validations */
 @Injectable()
-export class ProductFormGroup extends FormGroup{
+export class ProductFormGroup extends FormGroup {
 
   constructor(product: Product) {
     const controls = {
@@ -14,10 +14,19 @@ export class ProductFormGroup extends FormGroup{
                         Validators.required,
                         Validators.pattern("^[0-9\.,]+$")
                     ])),
-      description: new FormControl(product.description),
-      imgFile: new FormControl(product.imageUrl),
+      description: new FormControl(product.description, Validators.required ),
+      image: new FormControl(product.imageUrl, ),
     };
     super(controls);
-    console.log(product, this);
+  }
+  setValue(product: Product) {
+    console.log("set value", product, product.toJSON());
+    super.setValue(product.toJSON());
+  }
+  patchValue(product: Product) {
+// tslint:disable-next-line: no-console
+    console.trace();
+    console.log("patch value", product, product.toJSON());
+    super.patchValue(product.toJSON());
   }
 }

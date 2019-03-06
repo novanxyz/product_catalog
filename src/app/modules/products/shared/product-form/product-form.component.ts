@@ -3,56 +3,57 @@ import { Component, OnInit, Input, ViewChild, Output, EventEmitter, OnChanges, S
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { UtilsHelperService } from 'src/app/core/services/utils-helper.service';
+import { ValidationErrors } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css'],
-  animations: [UtilsHelperService.fadeInOut()]
+  animations: [UtilsHelperService.fadeInOut()],
+
 })
 export class ProductFormComponent implements OnInit, OnChanges {
 
-  public readOnly: boolean = false;
+  readOnly: boolean = false;
   _error: string;
   _mode: string = 'view' ; // || 'edit' || 'new';
   _imgUrl: any;
 
   @Input() product: Product;
-  @ViewChild('form') myNgForm; // just to call resetForm method
-  productForm: ProductFormGroup;
+  productForm: ProductFormGroup = new ProductFormGroup(new Product({}));
 
   @Output() submited = new EventEmitter<Product>();
 
   constructor(private productService: ProductService) {
-    console.log("constructor", this.product);
-    this.productForm = new ProductFormGroup(new Product({}));
   }
 
   ngOnInit() {
+    this.productForm.patchValue(this.product);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes, this.product);
-    console.log(this.productForm);
+    // console.log(changes, this.product);
+    // console.log(this.productForm);
     if ( changes['product'] ) {
       this.productForm.patchValue(this.product);
-      console.log(this.productForm);
+      // console.log(this.productForm);
     }
   }
 
   changeMode(mode: string ) {
-    console.log(mode);
+    // console.log(mode);
     this.readOnly =  mode == 'view';
     this._mode =  mode;
   }
 
   async submit() {
     this.product = new Product(this.productForm.value);
-    console.log(this.productForm.value, this.product);
+    // console.log(this.productForm.value, this.product);
     return this.productService.createProduct(this.product).then(e => {
         this.product.id = e;
-        this.product.imageUrl = `/web/binary/image?model=${Product.__name__}&id=${e}&field=image`;
+        this.product.imageUrl = `/web/binary/image?model=${Product.__name__}&field=image&id=${e}`;
         this.submited.emit(this.product);
         this.changeMode('view');
     });
@@ -73,7 +74,7 @@ export class ProductFormComponent implements OnInit, OnChanges {
 
     const reader = new FileReader();
     reader.onload = e => { this._imgUrl = reader.result;
-      this.productForm.get('imgFile').setValue(imgInput.files[0]);
+      this.productForm.get('image').setValue(imgInput.files[0]);
     }
     reader.readAsDataURL(imgInput.files[0]);
   }

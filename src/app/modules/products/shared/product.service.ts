@@ -35,7 +35,6 @@ export class ProductService {
   }
 
   constructor( private http: HttpClient ){
-    console.log(this, serverUrl + this.modelUrl);
     //this.http.options =  httpOptions;
   }
 
@@ -43,7 +42,6 @@ export class ProductService {
     return this.http
       .get(serverUrl + this.modelUrl )
       .pipe( map(response => {
-          console.log(response);
           // @ts-ignore
           const results = response.records;
           return results.map((product) => new Product(product));

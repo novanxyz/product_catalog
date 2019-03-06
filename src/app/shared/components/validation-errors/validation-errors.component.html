@@ -1,0 +1,7 @@
+<template *ngIf="control">
+  <mat-error *ngIf="control.errors">
+    <ng-container *ngIf="control.errors && control.errors['required']">{{errorPrefix}} required</ng-container>
+    <ng-container *ngIf="control.errors && control.errors['notUnique']">{{errorPrefix}} already exists</ng-container>
+    <ng-container *ngIf="control.errors && control.errors['email']">Please enter a valid email</ng-container>
+  </mat-error>
+</template>

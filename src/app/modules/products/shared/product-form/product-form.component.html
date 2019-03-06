@@ -1,6 +1,6 @@
 
 <form [formGroup]="productForm"  (ngSubmit)="submit()"
-      ngxScrollToFirstInvalid autocomplete="on" class="product-form" >
+      ngxScrollToFirstInvalid autocomplete="on" class="product-form" novalidate>
 
   <div class="form-error" *ngIf="_error">{{_error | translate}}</div>
   <div class="form-msg" *ngIf="_mode">{{ _mode }}</div>
@@ -11,6 +11,8 @@
             formControlName="name"
             [readonly]="readOnly"
             />
+    <!-- <validator-errors [control]='productForm.controls["name"]'></validator-errors> -->
+
   </mat-form-field>
 
   <mat-form-field class="input-container">
@@ -37,8 +39,16 @@
         [hidden]="readOnly"
         (change)="processFile(imageInput)" />
 
-    <img #imgPreview class="img-product preview" [src]="_imgUrl" *ngIf="_imgUrl" />
+    <img #imgPreview class="img-product preview" [src]="product.imageUrl" *ngIf="product.imageUrl" />
   </div>
+
+<p>
+      Form Value: {{ productForm.value | json }}
+</p>
+<p>
+    Form Errors: {{ productForm.errors | json }}
+</p>
+
 
   <div class="form-actions btns">
 
@@ -49,7 +59,7 @@
       Edit
     </button>
 
-    <button mat-raised-button type="submit" [hidden]="readOnly" (tap)="submit()" color="primary">
+    <button mat-raised-button type="submit" [hidden]="readOnly" (tap)="submit()" color="primary" [disabled]="!productForm.valid">
       Save
     </button>
 
