@@ -7,8 +7,13 @@
 }
 
 .product-form .img-product.preview{
-  width: 50%;
+  max-width: 50%;
+  max-height: 250px;
   text-align: center;
   margin: 0 auto;
   display: block;
+}
+
+button[hidden] {
+  display: none;
 }

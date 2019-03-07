@@ -38,7 +38,7 @@ export class ProductDetailPageComponent implements OnInit {
 
   _formSubmited(ev) {
     // console.log(ev);
-    this.productForm._readonly = true;
+    this.productForm.readOnly = true;
   }
 
 }

@@ -3,7 +3,6 @@ import { Component, OnInit, Input, ViewChild, Output, EventEmitter, OnChanges, S
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { UtilsHelperService } from 'src/app/core/services/utils-helper.service';
-import { ValidationErrors } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 
@@ -16,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductFormComponent implements OnInit, OnChanges {
 
-  readOnly: boolean = false;
+  readOnly: boolean = true;
   _error: string;
   _mode: string = 'view' ; // || 'edit' || 'new';
   _imgUrl: any;
@@ -25,6 +24,9 @@ export class ProductFormComponent implements OnInit, OnChanges {
   productForm: ProductFormGroup = new ProductFormGroup(new Product({}));
 
   @Output() submited = new EventEmitter<Product>();
+
+  @ViewChild('imgPreview')
+  imgPreview: HTMLImageElement;
 
   constructor(private productService: ProductService) {
   }
@@ -43,14 +45,21 @@ export class ProductFormComponent implements OnInit, OnChanges {
   }
 
   changeMode(mode: string ) {
-    // console.log(mode);
-    this.readOnly =  mode == 'view';
+    console.log(mode);
+    this.readOnly =  mode == 'view' ;
     this._mode =  mode;
   }
 
   async submit() {
     this.product = new Product(this.productForm.value);
     // console.log(this.productForm.value, this.product);
+    if (this.product.id ) {
+      return this.productService.updateProduct(this.product).then(e => {
+        this.submited.emit(this.product);
+        this.changeMode('view');
+      });
+
+    }
     return this.productService.createProduct(this.product).then(e => {
         this.product.id = e;
         this.product.imageUrl = `/web/binary/image?model=${Product.__name__}&field=image&id=${e}`;
@@ -73,7 +82,10 @@ export class ProductFormComponent implements OnInit, OnChanges {
     }
 
     const reader = new FileReader();
-    reader.onload = e => { this._imgUrl = reader.result;
+    reader.onload = e => {
+
+      console.log(reader.result, e.target.result, this.imgPreview);
+      this.imgPreview.nativeElement.src = reader.result;
       this.productForm.get('image').setValue(imgInput.files[0]);
     }
     reader.readAsDataURL(imgInput.files[0]);

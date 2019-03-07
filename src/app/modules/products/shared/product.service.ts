@@ -80,7 +80,7 @@ export class ProductService {
 
   updateProduct(product: Product): Promise<void> {
     return this.http
-      .post(serverUrl + this.modelUrl + '/' + product.id, product)
+      .post(serverUrl + this.modelUrl + product.id, product )
       .pipe(
         map(response => {
           // @ts-ignore
@@ -93,7 +93,7 @@ export class ProductService {
 
   deleteProduct(id: Number): Promise<void> {
     return this.http
-      .delete(serverUrl + this.modelUrl + '/' + id)
+      .delete(serverUrl + this.modelUrl +  id)
       .pipe(
         map(response => {
           // @ts-ignore

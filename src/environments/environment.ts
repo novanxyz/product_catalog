@@ -1,7 +1,8 @@
 export const environment = {
   production: false,
   serverUrl: 'http://sales.novanxyz.com',
-  dbname: 'sales',
+  dbName: 'sales',
+  dbVersion: 1,
   firebase: {
     apiKey: 'AIzaSyC4RNNlqXSwTM1Kt6Pbgutq2yuavSQ9WnU',
     authDomain: 'ismaestro-angularexampleapp.firebaseapp.com',

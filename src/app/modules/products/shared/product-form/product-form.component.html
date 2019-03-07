@@ -43,7 +43,7 @@
   </div>
 
 <p>
-      Form Value: {{ productForm.value | json }}
+    Form Value: {{ productForm.value | json }}
 </p>
 <p>
     Form Errors: {{ productForm.errors | json }}
@@ -52,7 +52,7 @@
 
   <div class="form-actions btns">
 
-    <button mat-flat-button	 type="button" [hidden]="readOnly" (tab)="changeMode('view')" color="warn">
+    <button mat-flat-button	 type="button" [hidden]="readOnly" (tap)="changeMode('view')" color="warn">
       Cancel
     </button>
     <button mat-stroked-button type="button" [hidden]="!readOnly" (tap)="changeMode('edit')" color="warn">

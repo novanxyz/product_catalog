@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../shared/product.model';
 import { ProductService } from '../../shared/product.service';
-import { ProductCardComponent } from '../../shared/product-card/product-card.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {AppConfig} from '../../../../configs/app.config';
