@@ -9,7 +9,7 @@ export class ProductFormGroup extends FormGroup {
 
   constructor(product: Product) {
     const controls = {
-      id:new FormControl(product.id),
+      id: new FormControl(product.id),
       name: new FormControl(product.name, Validators.required),
       price: new FormControl(product.price, Validators.compose([
                         Validators.required,

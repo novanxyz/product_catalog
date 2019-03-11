@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  serverUrl: 'http://sales.novanxyz.com',
+  serverUrl: 'http://localhost:4200',
   dbName: 'sales',
   dbVersion: 1,
   firebase: {

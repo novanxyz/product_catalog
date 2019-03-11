@@ -23,6 +23,9 @@ import {RouterModule} from '@angular/router';
     BrowserAnimationsModule,
     HttpClientModule
   ],
+  declarations: [
+    // AuthGuard
+  ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ProgressInterceptor, multi: true, deps: [ProgressBarService]},
     {provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true}

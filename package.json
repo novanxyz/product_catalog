@@ -48,6 +48,7 @@
     "firebase": "5.8.4",
     "indexeddb-angular": "^0.1.8",
     "rxjs": "6.4.0",
+    "underscore": "^1.9.1",
     "web-animations-js": "2.3.1",
     "zone.js": "0.8.29"
   },

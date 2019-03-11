@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl,  } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,18 @@ import { FormControl,  } from '@angular/forms';
   styleUrls: ['./validation-errors.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ValidationErrorsComponent implements OnInit {
-  @Input() errorPrefix: string;
+export class ValidationErrorsComponent implements OnInit, OnChanges {
+  @Input() name: string;
   @Input() control: FormControl;
 
   constructor() {}
 
   ngOnInit() {
-    console.log(this.control);
+    console.log("validation-errors", this.control);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log("validation-errors", changes);
   }
 
 }

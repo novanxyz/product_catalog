@@ -36,7 +36,7 @@ export class ProductFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // console.log(changes, this.product);
+    console.log(changes, this.product);
     // console.log(this.productForm);
     if ( changes['product'] ) {
       this.productForm.patchValue(this.product);
@@ -84,7 +84,6 @@ export class ProductFormComponent implements OnInit, OnChanges {
     const reader = new FileReader();
     reader.onload = e => {
 
-      console.log(reader.result, e.target.result, this.imgPreview);
       this.imgPreview.nativeElement.src = reader.result;
       this.productForm.get('image').setValue(imgInput.files[0]);
     }

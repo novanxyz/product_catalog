@@ -11,8 +11,7 @@
             formControlName="name"
             [readonly]="readOnly"
             />
-    <!-- <validator-errors [control]='productForm.controls["name"]'></validator-errors> -->
-
+    <validation-errors [control]='productForm.controls["name"]' [name]="'name'"></validation-errors>
   </mat-form-field>
 
   <mat-form-field class="input-container">
@@ -21,6 +20,7 @@
             formControlName="price"
             [readonly]="readOnly"
             />
+    <validation-errors [control]='productForm.controls["price"]' [name]="'price'"></validation-errors>
   </mat-form-field>
 
   <div matFormField class="input-container">
@@ -29,6 +29,7 @@
       formControlName="description"
       [readonly]="readOnly"
       >{{product.description}}</textarea>
+      <validation-errors [control]='productForm.controls["description"]' [name]="'description'"></validation-errors>
   </div>
 
   <div matFormField class="input-container">
