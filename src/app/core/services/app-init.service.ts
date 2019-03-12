@@ -2,7 +2,7 @@ import { AppConfig } from './../../configs/app.config';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { _ }  from 'underscore';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AppInitService {
   initializeApp(serverUrl: string, dbId: string): Promise<any> {
     this.serverUrl = serverUrl;
     this.dbId = dbId;
-    return this.ensure_db(dbId).catch(url => this.getSessionInfo(url) );
+    return this.ensure_db(dbId);//.catch(url => this.getSessionInfo(url) );
   }
 
   ensure_db(dbId: string): Promise<any> {
@@ -38,6 +38,9 @@ export class AppInitService {
         this.context['context'] = res.result;
         AppConfig.sessionToken = res.result.session_id;
         localStorage[this.dbId] = JSON.stringify(this.context);
+      }),
+      catchError(res => {
+        // window.location = '/login';
       }),
     )
     .toPromise();

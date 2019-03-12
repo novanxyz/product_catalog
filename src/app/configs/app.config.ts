@@ -10,7 +10,7 @@ export const AppConfig: any = {
   },
   serverUrl: 'http://localhost:4200',
   dbname: 'sales',
-  sessionToken:'f6bb88a7ebde9f0aa394d5c014c9bff1c041e138',
+  sessionToken:'',
   votesLimit: 3,
   topHeroesLimit: 4,
   snackBarDuration: 3000,

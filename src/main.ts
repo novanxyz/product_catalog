@@ -8,5 +8,11 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .then(res => console.log("app init resolved", res ) )
+  .catch(err => {
+    console.log("app init failed", err ) ;
+    document.querySelector('.login-page').style.display = 'block';
+    document.querySelector('.loading-page').style.display = 'none';
+  });
