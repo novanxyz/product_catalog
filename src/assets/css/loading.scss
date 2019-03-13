@@ -228,7 +228,11 @@ body {
 font-weight:  300;
 margin:  0;
 }
-$primary: rgb(182,157,230);
+
+
+$primary: chocolate;
+
+
 html, body {
 height:  100vh;
 width:  100vw;
@@ -294,7 +298,7 @@ button {
   -webkit-appearance:  none;
   width:  auto;
   min-width:  100px;
-  border-radius:  24px;
+  border-radius:  4px;
   text-align:  center;
   padding:  15px 40px;
   margin-top:  5px;
@@ -398,13 +402,15 @@ $displacement:  3px;
   80% { transform: translateX(-$displacement);}
   100% { transform: translateX(0px);}
 }
+
+
 .session {
   display:  flex;
   flex-direction:  row;
   width:  auto;
   height:  100%;
   margin:  auto auto;
-  background:  #ffffff;
+  background:  #fefefe;
   border-radius:  4px;
   box-shadow:  0px 2px 6px -1px rgba(0,0,0,.12);
 }
@@ -413,10 +419,16 @@ $displacement:  3px;
   height:  auto;
   min-height:  100%;
   position:  relative;
-  background-image: url("/images/pexels-photo-114979.jpeg");
+  background-image: url("/assets/images/pexels-photo-114979.jpeg");
   background-size:  cover;
   border-top-left-radius:  4px;
   border-bottom-left-radius:  4px;
+}
+
+.right {
+  position: absolute;
+  right: 0px;
+  height: 100vh;
 }
 
 .left svg {

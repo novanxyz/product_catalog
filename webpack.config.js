@@ -18,7 +18,7 @@ module.exports =  {
         test: /\.scss$/,
         use: [
           {
-            loader: 'css-loader',
+            loader: 'css-loader', options : { sourceMap: true}
           }, {
             loader: 'resolve-url-loader',
           }, {

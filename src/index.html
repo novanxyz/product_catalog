@@ -14,6 +14,7 @@
   <meta name="application-name" content="Product Catalog App">
   <meta property="og:site_name" content="Product Catalog App">
   <meta property="og:locale" content="id_ID">
+  <meta property="DBID" content="sales@1">
 
   <meta property="og:title"
         content="Product Catalog App">
@@ -118,11 +119,12 @@
       </svg>
     </div>
     <div class="right">
-    <form action="" class="log-in" autocomplete="off">
+    <form class="log-in" autocomplete="off" id="loginForm" onsubmit="return false;">
       <h4>We are <span>NOVA</span></h4>
       <p>Welcome back! Log in to your account to view today's clients:</p>
+      <span class="alert" id="msg"></span>
       <div class="floating-label">
-        <input placeholder="Email" type="email" name="email" id="email" autocomplete="off">
+        <input placeholder="Email" type="text" name="email" id="email" autocomplete="off" required>
         <label for="email">Email:</label>
         <div class="icon">
             <!--?xml version="1.0" encoding="UTF-8"?-->
@@ -138,7 +140,7 @@
         </div>
       </div>
       <div class="floating-label">
-        <input placeholder="Password" type="password" name="password" id="password" autocomplete="off">
+        <input placeholder="Password" type="password" name="password" id="password" autocomplete="off" required>
         <label for="password">Password:</label>
         <div class="icon">
           <!--?xml version="1.0" encoding="UTF-8"?-->
@@ -155,10 +157,65 @@
         </div>
 
       </div>
-      <button type="submit" onclick="return false;">Log in</button>
+      <button id="submit" type="submit" onclick="login(this)">Log in</button>
     </form>
     </div>
   </div>
+  <script>
+
+    document.addEventListener('onchange', el => {
+      document.querySelector('#submit').setAttribute('disabled','');
+      document.querySelector('#msg').innerHTML = '';
+      if ( document.getElementById('email').value && document.getElementById('password').value ){
+        document.querySelector('#submit').removeAttribute('disabled');
+      }
+    });
+
+    function login(form){
+      var xhr = new XMLHttpRequest();
+
+
+      xhr.onreadystatechange = function(){
+        console.log(xhr.status);
+        document.querySelector('.loading-page').removeAttribute('hidden');
+        document.querySelector('.login-page').setAttribute('hidden','');
+        if (xhr.status == 200) {
+          document.querySelector('.loading-page').setAttribute('hidden','');
+          document.querySelector('.login-page').removeAttribute('hidden');
+
+          const result = JSON.parse(xhr.responseText);
+          console.log(xhr.responseText,result);
+          if (result.error){
+            console.log(result.error.message , result.error.data.message);
+            document.querySelector('#msg').innerHTML = result.error.data.message;
+          }else{
+            console.log(result.result);
+            const DBId = document.head.querySelector("[property~=DBID]").content;
+            console.log(DBId);
+            localStorage[DBId] = JSON.stringify(result.result);
+            localStorage['nextUrl'] = '/products#id=38';
+            window.location.reload();
+          }
+
+        }
+        if (xhr.status == 400) {
+          document.querySelector('.loading-page').setAttribute('hidden','');
+          document.querySelector('.login-page').removeAttribute('hidden');
+        }
+
+
+      }
+      const params = {
+        'db'    : 'sales',
+        'login' : document.getElementById('email').value,
+        'password' : document.getElementById('password').value,
+      }
+      xhr.open('POST','/api/session/authenticate',params);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(params));
+    }
+
+  </script>
 </section>
 </app-root>
 </body>
