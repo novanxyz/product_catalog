@@ -45,7 +45,7 @@
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/assets/css/reset.css",
-              "src/assets/css/loading.css",
+              "src/assets/css/loading.scss",
               "src/app/styles/global.scss"
             ],
             "stylePreprocessorOptions": {

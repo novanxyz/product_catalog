@@ -13,6 +13,6 @@ platformBrowserDynamic()
   .then(res => console.log("app init resolved", res ) )
   .catch(err => {
     console.log("app init failed", err ) ;
-    document.querySelector('.login-page').style.display = 'block';
-    document.querySelector('.loading-page').style.display = 'none';
+    document.querySelector('.login-page').removeAttribute('hidden');
+    document.querySelector('.loading-page').setAttribute('hidden','');
   });

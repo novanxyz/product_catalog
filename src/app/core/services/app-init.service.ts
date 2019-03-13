@@ -35,7 +35,9 @@ export class AppInitService {
     return this.http.get(serverUrl + '/api/session/get_session_info')
     .pipe(
       tap(res => {
+        // @ts-ignore
         this.context['context'] = res.result;
+        // @ts-ignore
         AppConfig.sessionToken = res.result.session_id;
         localStorage[this.dbId] = JSON.stringify(this.context);
       }),

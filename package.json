@@ -1,6 +1,6 @@
 {
-  "name": "angular-example-app",
-  "version": "7.0.0",
+  "name": "product_catalog",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "start": "ng serve --open --proxy-config proxy.conf.json",
@@ -9,7 +9,7 @@
     "build:prod": "ng build --prod",
     "build:library": "ng build ngx-example-library",
     "test": "ng test",
-    "test:app:watch": "ng test angular-example-app --code-coverage --watch=true",
+    "test:app:watch": "ng test product_catalog --code-coverage --watch=true",
     "test:library:watch": "ng test ngx-example-library --code-coverage --watch=true",
     "e2e": "ng e2e",
     "lint": "ng lint",
@@ -47,6 +47,7 @@
     "core-js": "2.6.5",
     "firebase": "5.8.4",
     "indexeddb-angular": "^0.1.8",
+    "resolve-url-loader": "^3.0.1",
     "rxjs": "6.4.0",
     "underscore": "^1.9.1",
     "web-animations-js": "2.3.1",

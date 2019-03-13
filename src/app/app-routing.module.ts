@@ -4,7 +4,7 @@ import {Error404PageComponent} from './shared/pages/error404-page/error404-page.
 import {HomePageComponent} from './shared/pages/home-page/home-page.component';
 import {AppConfig} from './configs/app.config';
 import { AuthGuard } from './core/auth.guard';
-import { LoginComponent } from './shared/components/login/login.component';
+
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full',
@@ -17,9 +17,6 @@ const routes: Routes = [
   { path: AppConfig.routes.products,
     loadChildren: './modules/products/products.module#ProductsModule',
     canActivate: [AuthGuard]
-  },
-  { path: 'login',
-    component: LoginComponent
   },
 
   {path: AppConfig.routes.error404, component: Error404PageComponent},

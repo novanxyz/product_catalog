@@ -1,4 +1,4 @@
-import {Deserializable} from '../../../shared/interfaces/deserializable.interface';
+import { Deserializable } from "src/app/core/interfaces/deserializable.interface";
 
 export class Product implements Deserializable {
   static __name__ = 'product.product';

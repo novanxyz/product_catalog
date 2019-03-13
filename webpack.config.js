@@ -1,4 +1,3 @@
-
 module.exports =  {
   "devServer" : {
     "/web/*": {
@@ -11,8 +10,27 @@ module.exports =  {
       "secure": false,
       "changeOrigin": true
     },
-
-
+  },
+  devtool: "source-map",
+  module: {
+    rules:[
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'css-loader',
+          }, {
+            loader: 'resolve-url-loader',
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              sourceMapContents: false
+            }
+          }
+        ]
+      },
+    ]
   }
 
 

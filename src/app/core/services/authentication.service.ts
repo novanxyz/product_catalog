@@ -1,10 +1,10 @@
 ﻿import { environment } from 'src/environments/environment';
-import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AppConfig } from 'src/app/configs/app.config';
+import { User } from '../models/user.model';
 
 const dbId = `${environment.dbName}@${environment.dbVersion}` ;
 @Injectable({ providedIn: 'root' })

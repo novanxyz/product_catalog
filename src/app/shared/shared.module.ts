@@ -18,7 +18,6 @@ import {LoadingPlaceholderComponent} from './components/loading-placeholder/load
 import {LoadingComponent} from './components/loading/loading.component';
 import {HeroCardComponent} from './components/hero-card/hero-card.component';
 import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
-import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -44,7 +43,6 @@ import { LoginComponent } from './components/login/login.component';
     LoadingComponent,
     LoadingPlaceholderComponent,
     ValidationErrorsComponent,
-    LoginComponent
   ],
   exports: [
     CommonModule,
