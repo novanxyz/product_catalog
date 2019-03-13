@@ -24,8 +24,10 @@
 5. Schematics Template, generated complete module  **structure** from a model.  
     * You needed to define model class file in root folder.
     * Generate model modules by execute an command with model class file as input.
-    * Fix/Modify templates view (especially card and form view) on the .html files.
-    * Add action logics on the .ts files.
+    * Fix/Modify templates view (especially card and form view) in the .html file.
+    * Add action logics in the .ts file.
+    * obviously styling in the .css file.
+    * test script in the .specs.ts file if you mandated or prefer.
   
 
 ### Module Structure
