@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, EventEmitter, Output} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
@@ -12,7 +12,7 @@ import {LocalStorage} from 'ngx-store';
 })
 
 export class HeaderComponent implements OnInit {
-
+  @Output() public sidenavToggle = new EventEmitter();
   @LocalStorage() language = 'en';
 
   menuItems: any[];
@@ -45,4 +45,9 @@ export class HeaderComponent implements OnInit {
       {link: '/' + AppConfig.routes.products, name: _('Products')}
     ];
   }
+
+  public onToggleSidenav = () => {
+    this.sidenavToggle.emit();
+  }
+
 }

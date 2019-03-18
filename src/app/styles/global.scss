@@ -1,5 +1,6 @@
 @import "mixins";
 
+
 * {
   @include font-roboto();
 }
@@ -12,6 +13,10 @@ h1, h2 {
   margin-bottom: 2rem;
 }
 
+app-root {
+  width: 100vw;
+  height: 100vh;
+}
 .header__title {
   text-align: center;
   font-size: 1.5rem;
@@ -89,8 +94,15 @@ pre {
 
 .page {
   height: calc(100vh - 227px);
+  display: block;
+}
+.page.no-footer {
+  height: calc(100vh - 112px);
 }
 
+app-header ~ .page.no-header {
+  display: none!important;
+}
 .page.no-footer + app-footer {
   display: none!important;
 }

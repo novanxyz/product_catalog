@@ -15,6 +15,8 @@ import {UtilsHelperService} from '../../../../core/services/utils-helper.service
 export class ProductListPageComponent implements OnInit {
 
   products: Product[] = null;
+  _viewmode: string = 'card';
+  _page: number = 1;
 
   constructor(private productService: ProductService,
     private location: Location,

@@ -31,7 +31,6 @@ export class AppInitService {
   }
 
   getSessionInfo(serverUrl: string): Promise<any> {
-    console.log(serverUrl)
     return this.http.get(serverUrl + '/api/session/get_session_info')
     .pipe(
       tap(res => {
@@ -40,10 +39,10 @@ export class AppInitService {
         // @ts-ignore
         AppConfig.sessionToken = res.result.session_id;
         localStorage[this.dbId] = JSON.stringify(this.context);
-      }),
-      catchError(res => {
-        // window.location = '/login';
-      }),
+      })
+      // ,catchError(res => {
+      //   // window.location = '/login';
+      // }),
     )
     .toPromise();
   }

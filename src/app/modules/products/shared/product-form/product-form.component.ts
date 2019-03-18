@@ -83,7 +83,7 @@ export class ProductFormComponent implements OnInit, OnChanges {
 
     const reader = new FileReader();
     reader.onload = e => {
-
+      // @ts-ignore
       this.imgPreview.nativeElement.src = reader.result;
       this.productForm.get('image').setValue(imgInput.files[0]);
     }

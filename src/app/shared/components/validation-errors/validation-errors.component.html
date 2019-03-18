@@ -1,4 +1,5 @@
 <template *ngIf="!control.valid">
+  {{control.errors | json}}
   <mat-error *ngIf="!control.errors">
     <ng-container *ngIf="control.errors && control.errors['required']">{{name}} required</ng-container>
     <ng-container *ngIf="control.errors && control.errors['notUnique']">{{name}} already exists</ng-container>

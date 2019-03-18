@@ -15,7 +15,7 @@ export class ValidationErrorsComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
-    console.log("validation-errors", this.control);
+    console.log("validation-errors", this.name, this.control);
   }
 
   ngOnChanges(changes: SimpleChanges) {

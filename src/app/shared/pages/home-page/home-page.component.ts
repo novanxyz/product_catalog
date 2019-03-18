@@ -8,7 +8,8 @@ import {UtilsHelperService} from '../../../core/services/utils-helper.service';
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
-  animations: [UtilsHelperService.fadeInOut()]
+  animations: [UtilsHelperService.fadeInOut()],
+  host: {'class': 'page'}
 })
 
 export class HomePageComponent implements OnInit {

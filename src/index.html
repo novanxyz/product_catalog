@@ -107,7 +107,7 @@
 </section>
 </section>
 <!-- LOGIN PAGE AFTER initilization failed-->
-<section class="login-page page" hidden >
+<section class="login-page page hidden"  hidden >
   <div class="session">
     <div class="left">
       <!--?xml version="1.0" encoding="UTF-8"?-->
@@ -119,7 +119,7 @@
       </svg>
     </div>
     <div class="right">
-    <form class="log-in" autocomplete="off" id="loginForm" onsubmit="return false;">
+    <form class="login" autocomplete="off" id="loginForm" onsubmit="return false;">
       <h4>We are <span>NOVA</span></h4>
       <p>Welcome back! Log in to your account to view today's clients:</p>
       <span class="alert" id="msg"></span>
@@ -202,7 +202,6 @@
           document.querySelector('.loading-page').setAttribute('hidden','');
           document.querySelector('.login-page').removeAttribute('hidden');
         }
-
 
       }
       const params = {

@@ -1,3 +1,4 @@
+import {NgModule} from '@angular/core';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -12,9 +13,11 @@ import {
   MatProgressSpinnerModule,
   MatSliderModule,
   MatSnackBarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatToolbarModule,
+  MatSidenavModule
 } from '@angular/material';
-import {NgModule} from '@angular/core';
+
 
 @NgModule({
   imports: [
@@ -30,8 +33,10 @@ import {NgModule} from '@angular/core';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatToolbarModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule,
@@ -47,7 +52,9 @@ import {NgModule} from '@angular/core';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule,
+    MatSidenavModule
   ],
 })
 

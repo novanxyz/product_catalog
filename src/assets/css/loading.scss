@@ -5,7 +5,7 @@ html {
 body {
   min-height: 100%;
 }
-[hidden] {
+[hidden] , .hidden {
   display: none;
 }
 .loading-page {
@@ -254,7 +254,7 @@ color:  #000;
 opacity:  .8;
 font-weight:  400;
 }
-form {
+.login-page form.login {
 padding:  40px 30px;
 background:  #fefefe;
 display:  flex;
