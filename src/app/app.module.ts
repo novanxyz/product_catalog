@@ -43,7 +43,8 @@ export function initializeApp(appInitService: AppInitService) {
     CoreModule,
     SharedModule,
     ProductsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   declarations: [
     AppComponent

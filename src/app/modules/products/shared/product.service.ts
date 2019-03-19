@@ -6,11 +6,11 @@ import { Product } from './product.model';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {AppConfig} from '../../../configs/app.config';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoggerService } from 'src/app/core/services/logger.service';
 
 const serverUrl = AppConfig.serverUrl;
-
+const cacheKey = Product.__name__ + '@' + AppConfig.dbName;
 @Injectable({
   providedIn: 'root'
 })
@@ -91,7 +91,7 @@ export class ProductService {
 
   }
 
-  deleteProduct(id: Number): Promise<void> {
+  deleteProduct(id: number): Promise<void> {
     return this.http
       .delete(serverUrl + this.modelUrl +  id)
       .pipe(
@@ -103,5 +103,18 @@ export class ProductService {
     //.catchError ( ProductService.handleError('deleteProduct',[]));
   }
 
+  uploadPicture(id: number, file: File, field: string = 'image'): Promise<string>  {
+    let formData = new FormData();
+    formData.append('file', file);
+    // const headers = new HttpHeaders({"Content-Type": 'multipart/form-data'});
+    return this.http
+          .post(`${this.modelUrl}${field}/${id}`, formData )
+          .toPromise();
+  }
+
+  updateCache(product: Product){
+
+    localStorage[cacheKey]
+  }
 }
 

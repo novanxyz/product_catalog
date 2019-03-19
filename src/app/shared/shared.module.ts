@@ -11,7 +11,7 @@ import {SearchBarComponent} from './components/search-bar/search-bar.component';
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { SidenavComponent } from './layout/sidenav/sidenav.component';
+import { SidenavComponent} from './layout/sidenav/sidenav.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
@@ -21,10 +21,11 @@ import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {WebStorageModule} from 'ngx-store';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
+
 import {LoadingComponent} from './components/loading/loading.component';
 import {HeroCardComponent} from './components/hero-card/hero-card.component';
 import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
-
+import { SideProfileComponent } from './components/side-profile/side-profile.component';
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import { ValidationErrorsComponent } from './components/validation-errors/valida
     ValidationErrorsComponent,
     LayoutComponent,
     SidenavComponent,
+    SideProfileComponent,
   ],
   exports: [
     CommonModule,
@@ -69,7 +71,8 @@ import { ValidationErrorsComponent } from './components/validation-errors/valida
     LoadingPlaceholderComponent,
     ValidationErrorsComponent,
     LayoutComponent,
-    SidenavComponent
+    SidenavComponent,
+    SideProfileComponent
   ]
 })
 
