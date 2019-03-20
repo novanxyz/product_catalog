@@ -1,0 +1,29 @@
+/* @import '../../../styles/global'; */
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover, a:active{
+  color: lightgray;
+}
+
+.nav-caption{
+  display: inline-block;
+  padding-left: 6px;
+}
+/* Sidebar */
+
+
+div.app-logo {
+  // height: $header-height;
+  max-height: 64px;
+  margin: 4px auto;
+  text-align: center;
+  padding:4px;
+}
+img.app-logo {
+   height: 48px;
+
+}

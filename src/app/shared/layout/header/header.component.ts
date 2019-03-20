@@ -14,6 +14,7 @@ import {LocalStorage} from 'ngx-store';
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
   @LocalStorage() language = 'en';
+  pageTitle: string = 'Products';
 
   menuItems: any[];
   progressBarMode: string;

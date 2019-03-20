@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-side-profile',
   templateUrl: './side-profile.component.html',
-  styleUrls: ['./side-profile.component.css']
+  styleUrls: ['./side-profile.component.scss']
 })
 export class SideProfileComponent implements OnInit {
 

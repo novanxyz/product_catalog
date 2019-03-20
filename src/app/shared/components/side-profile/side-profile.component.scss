@@ -1,0 +1,27 @@
+.user-wrapper {
+  display: flex;
+  margin-bottom: 30px;
+  padding: 0 8px;
+  .profile-image {
+    width: 40px;
+    height: 40px;
+    img {
+      border-radius: 100%;
+      max-width: 100%;
+    }
+  }
+  .text-wrapper {
+    margin-left: 15px;
+    .rtl & {
+      margin-left: 0;
+      margin-right: 15px;
+    }
+    .profile-name {
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .designation {
+      margin-right: 3px;
+    }
+  }
+}

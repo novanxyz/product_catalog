@@ -1,12 +1,14 @@
 <mat-toolbar color="primary">
   <div >
-      <button mat-icon-flat-button (click)="onToggleSidenav()">
+      <button mat-icon-button (click)="onToggleSidenav()">
           <mat-icon>menu</mat-icon>
       </button>
   </div>
+
   <div>
-      <a routerLink="/home">Owner-Account</a>
+      <a routerLink="/">{{pageTitle}}</a>
   </div>
+
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
 
   </div>

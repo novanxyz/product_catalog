@@ -6,7 +6,7 @@ body {
   min-height: 100%;
 }
 [hidden] , .hidden {
-  display: none;
+  display: none !important;
 }
 .loading-page {
   height: 100% !important;

@@ -1,12 +1,19 @@
+<div class="app-logo">
+  <img class="app-logo" alt="logo" src="assets/images/logo.svg"/>
+</div>
+<app-side-profile></app-side-profile>
 <mat-nav-list>
-  <app-side-profile></app-side-profile>
+    <!-- AUTOMATICE MENU from routes and module configs
+  Real Time Site configuration
+  -->
+  <a mat-list-item routerLink="/products" (click)="onSidenavClose()">
+    <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Products</span>
+  </a>
+  <a mat-list-item routerLink="/heroes" (click)="onSidenavClose()">
+    <mat-icon>account_balance</mat-icon><span class="nav-caption">Heroes</span>
+  </a>
 
-  <a mat-list-item routerLink="/owner" (click)="onSidenavClose()">
-    <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Owner Actions</span>
-  </a>
-  <a mat-list-item routerLink="#" (click)="onSidenavClose()">
-    <mat-icon>account_balance</mat-icon><span class="nav-caption">Account Actions</span>
-  </a>
+  <!--
   <mat-list-item [matMenuTriggerFor]="menu">
     <mat-icon>unfold_more</mat-icon>
     <a matline>Example</a>
@@ -15,5 +22,5 @@
     <button mat-menu-item (click)="onSidenavClose()">View profile</button>
     <button mat-menu-item (click)="onSidenavClose()">Add contact</button>
   </mat-menu>
-
+  -->
 </mat-nav-list>
