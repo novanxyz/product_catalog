@@ -1,5 +1,5 @@
 <div class="product-details page">
-  <app-product-form [product]="product" (submited)="_formSubmited($event)" *ngIf="product">
+  <app-product-form [product]="product" (changed)="_formChanged($event)" *ngIf="product">
   </app-product-form>
 </div>
 

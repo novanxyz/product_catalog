@@ -4,6 +4,8 @@ import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { UtilsHelperService } from 'src/app/core/services/utils-helper.service';
 import { Observable } from 'rxjs';
+import { AppConfig } from 'src/app/configs/app.config';
+import { Route, Router } from '@angular/router';
 
 
 @Component({
@@ -23,12 +25,13 @@ export class ProductFormComponent implements OnInit, OnChanges {
   @Input() product: Product;
   productForm: ProductFormGroup = new ProductFormGroup(new Product({}));
 
-  @Output() submited = new EventEmitter<Product>();
+  @Output() changed = new EventEmitter<any>();
+
 
   @ViewChild('imgPreview')
   imgPreview: HTMLImageElement;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
   }
 
   ngOnInit() {
@@ -45,27 +48,36 @@ export class ProductFormComponent implements OnInit, OnChanges {
   }
 
   changeMode(mode: string ) {
-    console.log(mode);
     this.readOnly =  mode == 'view' ;
     this._mode =  mode;
   }
 
   async submit() {
-    this.product = new Product(this.productForm.value);
-    // console.log(this.productForm.value, this.product);
+    // this.product = new Product(this.productForm.value);
+    console.log(this.productForm.value, this.product);
     if (this.product.id ) {
-      return this.productService.updateProduct(this.product).then(e => {
-        this.submited.emit(this.product);
+      return this.productService.update(this.productForm.value).then(e => {
+        this.changed.emit( ["updated", this.product] );
         this.changeMode('view');
       });
 
     }
-    return this.productService.createProduct(this.product).then(e => {
+    return this.productService.create(this.productForm.value ).then(e => {
         this.product.id = e;
-        this.product.imageUrl = `/web/binary/image?model=${Product.__name__}&field=image&id=${e}`;
-        this.submited.emit(this.product);
+        this.changed.emit( ["created", this.product] );
         this.changeMode('view');
     });
+  }
+
+  async delete(){
+    if (this.product.id) {
+      return this.productService.delete(this.product.id)
+        .then( e=> {
+          this.changed.emit( ["deleted", this.product ] );
+          this.changeMode('view');
+          })
+    }
+    return new PromiseRejectionEvent("No Id Supplied", null);
   }
 
   processFile(imgInput: HTMLInputElement) {

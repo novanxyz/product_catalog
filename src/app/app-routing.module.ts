@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full',
     canActivate: [AuthGuard]
   },
-  { path: AppConfig.routes.heroes,
+  {
+    path: AppConfig.routes.heroes,
     loadChildren: './modules/heroes/heroes.module#HeroesModule',
     canActivate: [AuthGuard]
   },

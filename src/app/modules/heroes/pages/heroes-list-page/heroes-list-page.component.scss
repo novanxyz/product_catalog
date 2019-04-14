@@ -33,7 +33,7 @@
   @include push--auto();
   display: table;
 
-  /deep/ .mat-list-text {
+  .mat-list-text {
     text-align: left !important;
   }
 }

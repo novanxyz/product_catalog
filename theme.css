@@ -1,0 +1,20 @@
+/* Color Theme Swatches in Hex */
+.Fabric-with-colorful-diagonal-stripes-from-above-1-hex { color: #731739; }
+.Fabric-with-colorful-diagonal-stripes-from-above-2-hex { color: #D959B7; }
+.Fabric-with-colorful-diagonal-stripes-from-above-3-hex { color: #4C2CBF; }
+.Fabric-with-colorful-diagonal-stripes-from-above-4-hex { color: #6A8FD9; }
+.Fabric-with-colorful-diagonal-stripes-from-above-5-hex { color: #A0C4F2; }
+
+/* Color Theme Swatches in RGBA */
+.Fabric-with-colorful-diagonal-stripes-from-above-1-rgba { color: rgba(114, 22, 56, 1); }
+.Fabric-with-colorful-diagonal-stripes-from-above-2-rgba { color: rgba(216, 88, 182, 1); }
+.Fabric-with-colorful-diagonal-stripes-from-above-3-rgba { color: rgba(75, 43, 191, 1); }
+.Fabric-with-colorful-diagonal-stripes-from-above-4-rgba { color: rgba(106, 143, 216, 1); }
+.Fabric-with-colorful-diagonal-stripes-from-above-5-rgba { color: rgba(159, 195, 242, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Fabric-with-colorful-diagonal-stripes-from-above-1-hsla { color: hsla(337, 66, 27, 1); }
+.Fabric-with-colorful-diagonal-stripes-from-above-2-hsla { color: hsla(315, 62, 59, 1); }
+.Fabric-with-colorful-diagonal-stripes-from-above-3-hsla { color: hsla(253, 62, 46, 1); }
+.Fabric-with-colorful-diagonal-stripes-from-above-4-hsla { color: hsla(219, 59, 63, 1); }
+.Fabric-with-colorful-diagonal-stripes-from-above-5-hsla { color: hsla(213, 76, 78, 1); }

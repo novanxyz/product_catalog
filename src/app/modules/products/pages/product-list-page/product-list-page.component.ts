@@ -14,6 +14,7 @@ import {UtilsHelperService} from '../../../../core/services/utils-helper.service
 })
 export class ProductListPageComponent implements OnInit {
 
+  _page_title_ = Product.__plural__;
   products: Product[] = null;
   _viewmode: string = 'card';
   _page: number = 1;
@@ -25,7 +26,7 @@ export class ProductListPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe((products: Array<Product>) => {
+    this.productService.fetch().subscribe((products: Array<Product>) => {
       this.products = products.slice(0, 10);
     });
   }

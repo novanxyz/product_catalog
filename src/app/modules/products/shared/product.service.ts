@@ -38,7 +38,7 @@ export class ProductService {
     //this.http.options =  httpOptions;
   }
 
-  getProducts(): Observable<Product[]> {
+  fetch(): Observable<Product[]> {
     return this.http
       .get(serverUrl + this.modelUrl )
       .pipe( map(response => {
@@ -53,7 +53,7 @@ export class ProductService {
 
   }
 
-  getProduct(id: Number): Observable<Product> {
+  get(id: Number): Observable<Product> {
     return this.http
       .get(serverUrl + this.modelUrl + id)
       .pipe(
@@ -66,7 +66,7 @@ export class ProductService {
     //.catchError ( ProductService.handleError('getProducts',[]));
   }
 
-  createProduct(product: Product): Promise<number> {
+  create(product: Product): Promise<number> {
     return this.http
       .post(serverUrl + this.modelUrl , product)
       .pipe(
@@ -78,9 +78,9 @@ export class ProductService {
     //.catchError ( ProductService.handleError('createProducts',[]));
   }
 
-  updateProduct(product: Product): Promise<void> {
+  update(product: Product): Promise<void> {
     return this.http
-      .post(serverUrl + this.modelUrl + product.id, product )
+      .put(serverUrl + this.modelUrl + product.id, product )
       .pipe(
         map(response => {
           // @ts-ignore
@@ -91,7 +91,7 @@ export class ProductService {
 
   }
 
-  deleteProduct(id: number): Promise<void> {
+  delete(id: number): Promise<void> {
     return this.http
       .delete(serverUrl + this.modelUrl +  id)
       .pipe(
@@ -103,7 +103,7 @@ export class ProductService {
     //.catchError ( ProductService.handleError('deleteProduct',[]));
   }
 
-  uploadPicture(id: number, file: File, field: string = 'image'): Promise<string>  {
+  uploadPicture(id: number, file: File, field: string = 'image'): Promise<any>  {
     let formData = new FormData();
     formData.append('file', file);
     // const headers = new HttpHeaders({"Content-Type": 'multipart/form-data'});
@@ -112,8 +112,7 @@ export class ProductService {
           .toPromise();
   }
 
-  updateCache(product: Product){
-
+  updateCache(product: Product) {
     localStorage[cacheKey]
   }
 }

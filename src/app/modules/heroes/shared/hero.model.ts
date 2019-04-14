@@ -28,4 +28,7 @@ export class Hero implements Deserializable {
     Object.assign(this, input);
     return this;
   }
+  toJSON(){
+    return Object.assign({},this);
+  }
 }

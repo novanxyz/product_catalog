@@ -5,8 +5,8 @@ export let APP_CONFIG = new InjectionToken('app.config');
 export const AppConfig: any = {
   routes: {
     heroes: 'heroes',
-    products:'products',
-    error404: '404'
+    error404: '404',
+    products: 'products'
   },
   serverUrl: 'http://localhost:4200',
   dbname: 'sales',

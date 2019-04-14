@@ -14,5 +14,5 @@ platformBrowserDynamic()
   .catch(err => {
     console.log("app init failed", err ) ;
     document.querySelector('.login-page').removeAttribute('hidden');
-    document.querySelector('.loading-page').setAttribute('hidden','');
+    document.querySelector('.loading-page').setAttribute('hidden', 'true');
   });

@@ -22,6 +22,7 @@ app-root {
   font-size: 1.5rem;
   font-weight: 300;
   padding: 1rem 0 0;
+  text-transform: capitalize;
 }
 
 .flex-spacer {
@@ -117,6 +118,8 @@ app-header ~ .page.no-header {
    margin: 4px 8px;
    float: right;
 }
+.pull-left { float: left  !important; }
+.pull-right{ float: right !important;}
 
 // MATERIAL
 @import "material";

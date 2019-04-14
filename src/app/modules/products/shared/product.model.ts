@@ -1,24 +1,35 @@
 import { Deserializable } from "src/app/core/interfaces/deserializable.interface";
+import { Category } from "./category.model";
 
 export class Product implements Deserializable {
-  static __name__ = 'product.product';
+  static __name__     = 'product.product';
+  static __plural__   = 'products';
+  static __singular__ = 'product';
 
   id: number;
   name: string;
   description: string;
+  category: Category ;
   price: number;
   active: boolean;
-  imageUrl: string;
-  imageUrls: string[];
+  image: string;
 
   constructor(product: any = {}) {
     this.id = product.id;
     this.name = product.name || '';
     this.description = product.description || '';
-    this.price = product.list_price || 0;
+    this.price = product.list_price || product.price || 0;
     this.active = product.active || true;
-    // tslint:disable-next-line:max-line-length
-    this.imageUrl =  product.image ? `data:image/png;base64,${product.image}` : `/web/binary/image?model=${Product.__name__}&field=image&id=${product.id}`;
+    this.image = product.image;
+    this.category = new Category(product.categ_id);
+  }
+
+  get imageUrl(): string {
+    return this.image ? `data:image/png;base64,${this.image}` : `/web/binary/image?model=${Product.__name__}&field=image&id=${this.id}`;
+  }
+
+  get imageUrls(): string[] {
+    return [];
   }
 
 
@@ -26,7 +37,11 @@ export class Product implements Deserializable {
     Object.assign(this, input);
     return this;
   }
+
   toJSON() {
-    return Object.assign({}, this);
+// tslint:disable-next-line: prefer-const
+    let ret = Object.assign({}, this);
+    ret['list_price'] = this.price;
+    return ret;
   }
 }

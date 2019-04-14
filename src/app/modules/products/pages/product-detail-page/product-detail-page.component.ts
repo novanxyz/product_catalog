@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../shared/product.model';
 import { ProductService } from '../../shared/product.service';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -19,7 +20,8 @@ export class ProductDetailPageComponent implements OnInit {
   productForm: ProductFormComponent;
 
   constructor(private productService: ProductService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
       // this.product = new Product({ "id": 23131, "name": "test random product", "list_price": 12313.0 });
     }
 
@@ -29,15 +31,19 @@ export class ProductDetailPageComponent implements OnInit {
       return this.productForm.changeMode('new');
     }
 
-    this.productService.getProduct(this.productId)
+    this.productService.get(this.productId)
       .subscribe((product: Product) => {
         // console.log(product);
         this.product = product;
       });
   }
 
-  _formSubmited(ev) {
-    // console.log(ev);
+  _formChanged(ev: any) {
+    console.log(ev);
+    if (ev[0] == 'deleted') {
+        this.router.navigate([`/${Product.__plural__}` ,{"msg": "Product deleted"} ]);
+    }
+
     this.productForm.readOnly = true;
   }
 

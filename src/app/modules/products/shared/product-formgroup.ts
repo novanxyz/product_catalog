@@ -12,9 +12,10 @@ export class ProductFormGroup extends FormGroup {
       id: new FormControl(product.id),
       name: new FormControl(product.name, Validators.required),
       price: new FormControl(product.price, Validators.compose([
-                        Validators.required,
-                        Validators.pattern("^[0-9\.,]+$")
-                    ])),
+                                        Validators.required,
+                                        Validators.pattern("^[0-9\.,]+$")
+                                      ])
+                        ),
       description: new FormControl(product.description, Validators.required ),
       image: new FormControl(product.imageUrl, ),
     };

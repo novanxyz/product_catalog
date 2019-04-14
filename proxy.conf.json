@@ -1,11 +1,11 @@
 {
   "/web/*": {
-    "target": "http://sales.novanxyz.com",
+    "target": "https://sales.novanxyz.com",
     "secure": false,
     "changeOrigin": true
   },
   "/api/*": {
-    "target": "http://sales.novanxyz.com",
+    "target": "https://sales.novanxyz.com",
     "secure": false,
     "changeOrigin": true
   }

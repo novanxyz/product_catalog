@@ -3,7 +3,6 @@
       ngxScrollToFirstInvalid autocomplete="on" class="product-form" novalidate>
 
   <div class="form-error" *ngIf="_error">{{_error | translate}}</div>
-  <div class="form-msg" *ngIf="_mode">{{ _mode }}</div>
 
   <mat-form-field class="input-container">
     <input matInput name="name" type="text"
@@ -32,7 +31,8 @@
       <validation-errors [control]='productForm.controls["description"]' [name]="'description'"></validation-errors>
   </div>
 
-  <div matFormField class="input-container">
+  <div matFormField class="input-container text--center">
+    <img #imgPreview class="img-product preview" [src]="product.imageUrl" *ngIf="product.imageUrl" />
     <input #imageInput
         name="image"
         type="file"
@@ -40,7 +40,6 @@
         [hidden]="readOnly"
         (change)="processFile(imageInput)" />
 
-    <img #imgPreview class="img-product preview" [src]="product.imageUrl" *ngIf="product.imageUrl" />
   </div>
 
 <p>
@@ -60,8 +59,14 @@
       Edit
     </button>
 
+
+
     <button mat-raised-button type="submit" [hidden]="readOnly" (tap)="submit()" color="primary" [disabled]="!productForm.valid">
       Save
+    </button>
+
+    <button mat-button type="button" [hidden]="(readOnly && !product.id)" (tap)="delete()" color="warning" class="pull-left" >
+      <mat-icon>delete</mat-icon>
     </button>
 
   </div>

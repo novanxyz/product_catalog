@@ -52,12 +52,13 @@
     "indexeddb-angular": "^0.1.8",
     "resolve-url-loader": "^3.0.1",
     "rxjs": "6.4.0",
+    "sass": "^1.18.0",
     "underscore": "^1.9.1",
     "web-animations-js": "2.3.1",
     "zone.js": "0.8.29"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.13.3",
+    "@angular-devkit/build-angular": "^0.13.8",
     "@angular-devkit/build-ng-packagr": "0.13.4",
     "@angular/cdk": "7.3.3",
     "@angular/cli": "7.3.3",
