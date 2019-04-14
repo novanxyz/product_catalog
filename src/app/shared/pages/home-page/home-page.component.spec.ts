@@ -23,7 +23,7 @@ describe('HomePage', () => {
       ],
       declarations: [
         HeroCardComponent,
-        HeroLoadingComponent,
+        LoadingComponent,
         LoadingPlaceholderComponent,
         HomePageComponent
       ]

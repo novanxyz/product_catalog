@@ -27,7 +27,7 @@ describe('SearchBarComponent', () => {
         TranslateModule.forRoot()
       ],
       declarations: [
-        HeroLoadingComponent,
+        LoadingComponent,
         LoadingPlaceholderComponent,
         HeroCardComponent,
         SearchBarComponent,

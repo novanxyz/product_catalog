@@ -29,7 +29,7 @@ describe('HeroesListPageComponent', () => {
       ],
       declarations: [
         HeroRemoveComponent,
-        HeroLoadingComponent,
+        LoadingComponent,
         LoadingPlaceholderComponent,
         HeroesListPageComponent
       ]

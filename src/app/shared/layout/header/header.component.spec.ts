@@ -5,7 +5,7 @@ import {TestsModule} from '../../modules/tests.module';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {ProgressBarService} from '../../../core/services/progress-bar.service';
 import {configureTestSuite} from 'ng-bullet';
-import {SearchBarComponent} from '../search-bar/search-bar.component';
+import {SearchBarComponent} from '../../components/search-bar/search-bar.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
