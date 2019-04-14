@@ -98,7 +98,7 @@ export class ProductFormComponent implements OnInit, OnChanges {
       // @ts-ignore
       this.imgPreview.nativeElement.src = reader.result;
       this.productForm.get('image').setValue(imgInput.files[0]);
-    }
+    };
     reader.readAsDataURL(imgInput.files[0]);
   }
 
