@@ -46,7 +46,7 @@ export class ProductService {
           const results = response.records;
           return results.map((product) => new Product(product));
         }),
-        catchError ( ProductService.handleError('getProducts',[]))
+        catchError ( ProductService.handleError('getProducts', []))
       );
 
       // .catchError ( ProductService.handleError('getProducts',[]))
@@ -75,7 +75,7 @@ export class ProductService {
           return response.id;
         })
       ).toPromise();
-    //.catchError ( ProductService.handleError('createProducts',[]));
+    // .catchError ( ProductService.handleError('createProducts',[]));
   }
 
   update(product: Product): Promise<void> {
@@ -86,7 +86,7 @@ export class ProductService {
           // @ts-ignore
           return response.id;
         })
-        // ,catchError ( ProductService.handleError('updateProducts',[]));
+        // .catchError ( ProductService.handleError('updateProducts',[]));
       ).toPromise();
 
   }
