@@ -12,7 +12,7 @@ export class User implements Deserializable {
     return this;
   }
 
-  toJSON(){
+  toJSON() {
     return Object.assign({},this);
   }
 }

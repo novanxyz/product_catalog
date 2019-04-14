@@ -27,7 +27,7 @@ export class ProductDetailPageComponent implements OnInit {
 
   ngOnInit() {
     this.productId = parseInt( this.activatedRoute.snapshot.paramMap.get('id') );
-    if ( isNaN(this.productId) ){
+    if ( isNaN(this.productId) ) {
       return this.productForm.changeMode('new');
     }
 

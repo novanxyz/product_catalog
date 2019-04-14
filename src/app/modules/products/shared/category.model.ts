@@ -8,13 +8,13 @@ export class Category implements Deserializable {
   id: number;
   name: string;
 
-  static populate(category: any){
+  static populate(category: any) {
     let catedb =  new Set( JSON.parse(localStorage[Category.__name__] || '[]') );
     catedb.add(JSON.stringify(category));
     localStorage[Category.__name__] = JSON.stringify(Array.from(catedb));
   }
 
-  static fetch(){
+  static fetch() {
     return JSON.parse(localStorage[Category.__name__]) ;
   }
 

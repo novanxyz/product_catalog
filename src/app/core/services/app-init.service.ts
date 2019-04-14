@@ -16,7 +16,7 @@ export class AppInitService {
   initializeApp(serverUrl: string, dbId: string): Promise<any> {
     this.serverUrl = serverUrl;
     this.dbId = dbId;
-    return this.ensure_db(dbId);//.catch(url => this.getSessionInfo(url) );
+    return this.ensure_db(dbId); // .catch(url => this.getSessionInfo(url) );
   }
 
   ensure_db(dbId: string): Promise<any> {
