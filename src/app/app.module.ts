@@ -51,7 +51,7 @@ export function initializeApp(appInitService: AppInitService) {
   ],
   providers: [
     AppInitService,
-    {provide: APP_INITIALIZER, useFactory: initializeApp, deps: [ AppInitService ], multi:true },
+    {provide: APP_INITIALIZER, useFactory: initializeApp, deps: [ AppInitService ], multi: true },
     {provide: APP_CONFIG, useValue: AppConfig },
     // {provide: ErrorHandler, useClass: SentryErrorHandler, },
     {provide: HTTP_INTERCEPTORS, useClass: HttpHeaderInterceptor, multi: true }

@@ -3,7 +3,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { environment } from 'src/environments/environment';
 import { _ } from 'underscore';
 
-const dbId =  environment.dbName + '@' + environment.dbVersion
+const dbId =  environment.dbName + '@' + environment.dbVersion ;
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
 

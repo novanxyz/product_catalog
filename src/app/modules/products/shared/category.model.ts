@@ -24,7 +24,6 @@ export class Category implements Deserializable {
     this.id   = category[0];
     this.name = category[1];
     Category.populate(category);
-    // [this.id, this.name] = category;
   }
   deserialize(input: any): this {
     Object.assign(this, input);

@@ -14,7 +14,7 @@ export class HttpHeaderInterceptor implements HttpInterceptor {
         headers: req.headers.set('X-Openerp-Session-Id', AppConfig.sessionToken)
                             .append("Accept", 'application/json')
                             .append('Access-Control-Allow-Origin', '*')
-                            //.append("User-Agent","Angular Apps/v.1.0)
+                            // .append("User-Agent","Angular Apps/v.1.0)
       });
     // Pass the cloned request instead of the original request to the next handle
     return next.handle(clonedRequest);

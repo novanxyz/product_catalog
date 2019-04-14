@@ -8,7 +8,7 @@ import {AppConfig} from '../../configs/app.config';
 export abstract class BaseService {
 
   constructor(private translateService: TranslateService,
-    private snackBar: MatSnackBar){
+    private snackBar: MatSnackBar) {
 
   }
 

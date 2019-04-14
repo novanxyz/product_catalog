@@ -34,8 +34,8 @@ export class ProductService {
     };
   }
 
-  constructor( private http: HttpClient ){
-    //this.http.options =  httpOptions;
+  constructor( private http: HttpClient ) {
+    // this.http.options =  httpOptions;
   }
 
   fetch(): Observable<Product[]> {

@@ -69,13 +69,13 @@ export class ProductFormComponent implements OnInit, OnChanges {
     });
   }
 
-  async delete(){
+  async delete() {
     if (this.product.id) {
       return this.productService.delete(this.product.id)
         .then( e=> {
           this.changed.emit( ["deleted", this.product ] );
           this.changeMode('view');
-          })
+          });
     }
     return new PromiseRejectionEvent("No Id Supplied", null);
   }
