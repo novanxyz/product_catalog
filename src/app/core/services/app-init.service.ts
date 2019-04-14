@@ -1,7 +1,7 @@
 import { AppConfig } from './../../configs/app.config';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { _ }  from 'underscore';
+import { _ } from 'underscore';
 import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({

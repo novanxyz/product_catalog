@@ -5,7 +5,7 @@ import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {AppConfig} from '../../configs/app.config';
 
-export abstract class BaseService{
+export abstract class BaseService {
 
   constructor(private translateService: TranslateService,
     private snackBar: MatSnackBar){

@@ -47,9 +47,9 @@ export class ProductService {
           return results.map((product) => new Product(product));
         }),
         catchError ( ProductService.handleError('getProducts',[]))
-      )
+      );
 
-      //.catchError ( ProductService.handleError('getProducts',[]))
+      // .catchError ( ProductService.handleError('getProducts',[]))
 
   }
 
@@ -62,8 +62,8 @@ export class ProductService {
           const results = response.records;
           return new Product(results[0]);
         })
-      )
-    //.catchError ( ProductService.handleError('getProducts',[]));
+      );
+    // .catchError ( ProductService.handleError('getProducts',[]));
   }
 
   create(product: Product): Promise<number> {
@@ -86,7 +86,7 @@ export class ProductService {
           // @ts-ignore
           return response.id;
         })
-        //,catchError ( ProductService.handleError('updateProducts',[]));
+        // ,catchError ( ProductService.handleError('updateProducts',[]));
       ).toPromise();
 
   }
@@ -100,7 +100,7 @@ export class ProductService {
           return response.id;
         })
       ).toPromise();
-    //.catchError ( ProductService.handleError('deleteProduct',[]));
+    // .catchError ( ProductService.handleError('deleteProduct',[]));
   }
 
   uploadPicture(id: number, file: File, field: string = 'image'): Promise<any>  {
@@ -113,7 +113,7 @@ export class ProductService {
   }
 
   updateCache(product: Product) {
-    localStorage[cacheKey]
+    // localStorage[cacheKey];
   }
 }
 
