@@ -2,7 +2,6 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges, SimpleCha
 import { FormControl,  } from '@angular/forms';
 
 @Component({
-// tslint:disable-next-line: component-selector
   selector: 'validation-errors',
   templateUrl: './validation-errors.component.html',
   styleUrls: ['./validation-errors.component.css'],

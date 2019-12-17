@@ -1,5 +1,6 @@
 import { Deserializable } from "src/app/core/interfaces/deserializable.interface";
 import { Category } from "./category.model";
+import { FileHelperService } from "src/app/core/services/file-helper.service";
 
 export class Product implements Deserializable {
   static __name__     = 'product.product';
@@ -22,6 +23,7 @@ export class Product implements Deserializable {
     this.active = product.active || true;
     this.image = product.image;
     this.category = new Category(product.categ_id);
+    FileHelperService.saveBase64(`/${Product.__name__}/${product.id}/image.png`,product.image );
   }
 
   get imageUrl(): string {

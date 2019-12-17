@@ -3,11 +3,12 @@ import { map, catchError  } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Product } from './product.model';
 
-import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
-import {AppConfig} from '../../../configs/app.config';
+import { _ } from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
+import { AppConfig } from '../../../configs/app.config';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { LoggerService } from 'src/app/core/services/logger.service';
+import { DataHelperService } from 'src/app/core/services/data-helper.service';
 
 const serverUrl = AppConfig.serverUrl;
 const cacheKey = Product.__name__ + '@' + AppConfig.dbName;
@@ -16,7 +17,17 @@ const cacheKey = Product.__name__ + '@' + AppConfig.dbName;
 })
 export class ProductService {
   productsCollection: Array<Product>;
+  db: DataHelperService;
   modelUrl: String = `/api/${Product.__name__}/`;
+
+  constructor( private http: HttpClient, db: DataHelperService ) {
+    // this.http.options =  httpOptions;
+    this.createDb(db);
+  }
+
+  private createDb(db: DataHelperService) {
+    db.createCollection(cacheKey);
+  }
 
   public static handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -34,17 +45,16 @@ export class ProductService {
     };
   }
 
-  constructor( private http: HttpClient ) {
-    // this.http.options =  httpOptions;
-  }
 
   fetch(): Observable<Product[]> {
     return this.http
       .get(serverUrl + this.modelUrl )
-      .pipe( map(response => {
+      .pipe(
+        map(response => {
           // @ts-ignore
           const results = response.records;
-          return results.map((product) => new Product(product));
+          this.db.inserts(cacheKey,results);
+          return results.map( (product) => new Product(product) );
         }),
         catchError ( ProductService.handleError('getProducts', []))
       );
