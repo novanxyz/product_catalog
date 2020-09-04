@@ -102,7 +102,7 @@
     "ng-bullet": "^1.0.3",
     "ng-packagr": "4.7.1",
     "ngx-store": "2.1.0",
-    "node-sass": "4.11.0",
+    "node-sass": "4.13.1",
     "path": "0.12.7",
     "protractor": "5.4.2",
     "standard-version": "5.0.1",
