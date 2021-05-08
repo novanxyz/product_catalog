@@ -100,7 +100,7 @@
     "karma-scss-preprocessor": "4.0.0",
     "moment": "2.24.0",
     "ng-bullet": "^1.0.3",
-    "ng-packagr": "4.7.1",
+    "ng-packagr": "10.1.1",
     "ngx-store": "2.1.0",
     "node-sass": "4.11.0",
     "path": "0.12.7",
