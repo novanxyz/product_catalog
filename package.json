@@ -98,7 +98,7 @@
     "karma-mocha-reporter": "2.2.5",
     "karma-remap-istanbul": "0.6.0",
     "karma-scss-preprocessor": "4.0.0",
-    "moment": "2.24.0",
+    "moment": "2.29.4",
     "ng-bullet": "^1.0.3",
     "ng-packagr": "4.7.1",
     "ngx-store": "2.1.0",
